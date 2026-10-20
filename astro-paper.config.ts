@@ -8,8 +8,8 @@ export default defineAstroPaperConfig({
     author: "Putri Lestari",
     profile: "#",
     ogImage: "default-og.jpg",
-    lang: "id",
-    timezone: "Asia/Jakarta",
+    lang: "en",
+    timezone: "Asia/Bangkok",
     dir: "ltr",
   },
   posts: {
