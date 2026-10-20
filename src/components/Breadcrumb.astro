@@ -88,7 +88,7 @@ const navLabels: Record<string, string> = {
         let hrefUrl = "";
         if (isSinglePost) {
           // Yen single post, langsung diarahke menyang tag-e
-          hrefUrl = `${siteUrl}/tags/${slugifyStr(breadcrumb)}/`;
+          hrefUrl = `${siteUrl}/tags/${slugifyStr(tag)}/`;
         } else {
           // Kanggo halaman biasa/arsip tag: gabungke segment saka awal nganti posisi saiki
           // contone: segment ke-1 dadi /tags, segment ke-2 dadi /tags/nama-tag
