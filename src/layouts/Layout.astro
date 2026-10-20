@@ -28,14 +28,49 @@ const rssHref = getRelativeLocaleUrl(
   Astro.currentLocale ?? config.site.lang,
   "rss.xml"
 );
+
+// Jupuk path URL saiki kanggo deteksi halaman
+const pathname = Astro.url.pathname;
+
+// Inisialisasi variabel anyar khusus kanggo Meta Tag HTML
+let metaTitle = title;
+let metaDesc = description;
+
+// LOGIKA PENGKONDISIAN (IF - ELSE) DIENGGO ING KENE
+if (pathname === '/' || pathname === '/index.html') {
+  // HOME / UTAMA
+  metaTitle = `${title} - Berita Seputar Investasi, Bisnis, Teknologi, Lirik Lagu Dan Informasi Lainnya`;
+  metaDesc = `${description}`;
+
+} else if (pathname.startsWith('/tags/')) {
+  // HALAMAN TAGS
+  metaTitle = `Arsip ${title}`;
+  metaDesc = `${description}`;
+
+} else if (pathname.startsWith('/posts/') || pathname.startsWith('/blog/')) {
+  // HALAMAN POST / ARTIKEL SINGLE
+  metaTitle = `${title}`;
+  metaDesc = `${description}`;
+
+} else if (pathname.startsWith('/page/') || pathname.includes('/p/')) {
+  // HALAMAN PAGE (About, Contact, dll)
+  metaTitle = `Halaman ${title}`;
+  metaDesc = `${description}`;
+
+} else if (pathname.startsWith('/archives/') || pathname.startsWith('/arsip/')) {
+  // HALAMAN ARCHIVE
+  metaTitle = `Halaman ${title}`;
+  metaDesc = `${description}`;
+
+} else {
+  // DEFAULT / SAK KAREPMU (Yen ora mlebu kondisi ndhuwur)
+  metaTitle = `Halaman ${title}`;
+  metaDesc = `${description}`;
+}
 ---
 
 <!doctype html>
-<html
-  dir={site.dir ?? "ltr"}
-  lang={Astro.currentLocale ?? site.lang}
-  class="overflow-y-scroll scroll-smooth"
->
+<html dir={site.dir ?? "ltr"} lang={Astro.currentLocale ?? site.lang} class="overflow-y-scroll scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -44,46 +79,36 @@ const rssHref = getRelativeLocaleUrl(
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Font -->
-    <Font
-      cssVariable="--font-google-sans-code"
-      preload={[{ subset: "latin", weight: 400, style: "normal" }]}
-    />
+    <Font cssVariable="--font-google-sans-code" preload={[{ subset: "latin", weight: 400, style: "normal" }]} />
 
-    <!-- Primary meta -->
-    <title>{title}</title>
-    <meta name="title" content={title} />
-    <meta name="description" content={description} />
+    <title>{metaTitle}</title>
+    <meta name="title" content={metaTitle} />
+    <meta name="description" content={metaDesc} />
     <meta name="author" content={site.author} />
     <link rel="sitemap" href={getAssetPath("sitemap-index.xml")} />
 
-    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.title} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:title" content={metaTitle} />
+    <meta property="og:description" content={metaDesc} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={socialImageURL} />
 
-    <!-- Twitter / X -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
+    <meta property="twitter:title" content={metaTitle} />
+    <meta property="twitter:description" content={metaDesc} />
     <meta property="twitter:image" content={socialImageURL} />
+    <meta property="twitter:site" content="@id-news" />
 
-    <!-- RSS autodiscovery -->
-    <link
-      rel="alternate"
-      type="application/rss+xml"
-      title={site.title}
-      href={new URL(rssHref, Astro.site)}
-    />
+    <link rel="alternate" type="application/rss+xml" title={site.title} href={new URL(rssHref, Astro.site)} />
 
-    <!-- Filled at runtime by theme.ts to match the current background colour -->
-    <meta name="theme-color" content="" />
+    <meta content='#fff' name='theme-color' />
+    <meta content='#fff' name='msapplication-navbutton-color' />
+    <meta content='#fff' name='apple-mobile-web-app-status-bar-style' />
+    <meta content='yes' name='mobile-web-app-capable' />
+    <link rel="manifest" href="/manifest.json" />
 
-    <!-- Extra head content injected by child layouts (e.g. JSON-LD, article meta) -->
     <slot name="head" />
 
     {
@@ -95,10 +120,6 @@ const rssHref = getRelativeLocaleUrl(
       )
     }
 
-    <!--
-      Inline FOUC-prevention script: sets data-theme on <html> before
-      the browser paints. Runs synchronously, no defer/async.
-    -->
     <script is:inline>
       (function () {
         const stored = localStorage.getItem("theme");
@@ -109,16 +130,13 @@ const rssHref = getRelativeLocaleUrl(
         const root = document.firstElementChild;
         root?.setAttribute("data-theme", theme);
         root?.classList.toggle("dark", theme === "dark");
-        // Expose value so theme.ts can skip re-detection.
         window.__theme = { value: theme };
       })();
     </script>
 
     <ClientRouter />
   </head>
-  <body
-    class="bg-background font-app text-foreground selection:bg-accent/75 selection:text-accent-foreground flex min-h-svh flex-col"
-  >
+  <body class="bg-background font-app text-foreground selection:bg-accent/75 selection:text-accent-foreground flex min-h-svh flex-col">
     <slot />
     <script>
       import "@/scripts/theme";
