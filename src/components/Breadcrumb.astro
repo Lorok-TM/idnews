@@ -18,7 +18,6 @@ const siteUrl = Astro.site ? Astro.site.origin : "https://domain-sampeyan.com";
 let breadcrumbList = currentUrlPath.split("/").slice(1).filter(Boolean);
 
 // DETEKSI KONDISI SINGLE POST (src/pages/posts/[...slug]/index.astro)
-// Ciri utamane: segment pertamane yaiku 'posts' lan duwe slug/judul post ing segment kapindho, nanging dudu kaca pagination angka
 const isSinglePost = breadcrumbList[0] === "posts" && breadcrumbList[1] && isNaN(Number(breadcrumbList[1]));
 
 // Ambil props tags sing dikirim soko komponen bapa (yen ana)
@@ -26,7 +25,6 @@ const { tags = [] } = Astro.props;
 
 if (isSinglePost) {
   // Yen single post, breadcrumb dipeksa dadi: Home > [Tag Name Pertama]
-  // Yen postingan ora duwe tag, otomatis nggunakake fallback teks tag standar
   const activeTag = tags.length > 0 ? tags[0] : "Blog";
   breadcrumbList = [activeTag];
 } else {
@@ -81,43 +79,43 @@ const navLabels: Record<string, string> = {
     {
       breadcrumbList.map((breadcrumb, index) => {
         const isLast = index + 1 === breadcrumbList.length;
-        const position = index + 2; // Nomer urut 2, 3, dst
+        const position = index + 2; 
         const label = navLabels[breadcrumb] ?? decodeSegment(breadcrumb);
 
-        // LOGIKA BARU KANGGO URL SING AKURAT LAN KOMPLIT
+        // GENERATE URL
         let hrefUrl = "";
         if (isSinglePost) {
-          // Yen single post, langsung diarahke menyang tag-e
-          hrefUrl = `${siteUrl}/tags/${slugifyStr(breadcrumb)}/`;
+          // Yen single post, locale tetep kudu dilebokno supoyo path-e bener (e.g. /en/tags/nama-tag/)
+          const tagPath = `tags/${slugifyStr(breadcrumb)}`;
+          hrefUrl = `${siteUrl}${getRelativeLocaleUrl(locale, tagPath)}`;
         } else {
-          // Kanggo halaman biasa/arsip tag: gabungke segment saka awal nganti posisi saiki
-          // contone: segment ke-1 dadi /tags, segment ke-2 dadi /tags/nama-tag
           const currentSegments = currentUrlPath.split("/").slice(1).filter(Boolean).slice(0, index + 1).join("/");
           hrefUrl = `${siteUrl}${getRelativeLocaleUrl(locale, currentSegments)}`;
-          
-          // Pastikake pungkasan URL nganggo slash (/) yen asline nganggo slash
-          if (!hrefUrl.endsWith("/")) hrefUrl += "/";
         }
+        
+        if (!hrefUrl.endsWith("/")) hrefUrl += "/";
 
-        return isLast ? (
+        return (
           <li itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem">
+            {/* YEN SINGLE POST, PEKSA TETEP DADI LINK <a> BUKAN TEKS BIASA */}
             {isSinglePost ? (
               <a itemprop="item" href={hrefUrl}>
                 <span itemprop="name">{label}</span>
               </a>
-            ) : (
+            ) : isLast ? (
+              <>
                 <span itemprop="name" class="current-page">{label.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}</span>
                 <link itemprop="item" href={hrefUrl} />
+              </>
+            ) : (
+              <>
+                <a itemprop="item" href={hrefUrl}>
+                  <span itemprop="name">{label}</span>
+                </a>
+                <span aria-hidden="true">&raquo;</span>
+              </>
             )}
             <meta itemprop="position" content={position.toString()} />
-          </li>
-        ) : (
-          <li itemprop="itemListElement" itemscope="itemscope" itemtype="https://schema.org/ListItem">
-            <a itemprop="item" href={hrefUrl}>
-              <span itemprop="name">{label}</span>
-            </a>
-            <meta itemprop="position" content={position.toString()} />
-            <span aria-hidden="true">&raquo;</span>
           </li>
         );
       })
