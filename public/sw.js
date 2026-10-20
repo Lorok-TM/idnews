@@ -1,13 +1,9 @@
-const CACHE_NAME = 'id-news-pwa-cache-v1'; 
+const CACHE_NAME = 'id-news-pwa-cache-v2'; 
 const urlsToCache = [
   '/',
   '/offline.html',
   '/favicon.ico',
   '/posts/',
-  '/posts/2',
-  '/posts/3',
-  '/posts/4',
-  '/posts/5',
   '/tags/',
   '/tags/blogging/',
   '/archives/',
