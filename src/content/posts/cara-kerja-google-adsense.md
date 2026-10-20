@@ -7,6 +7,7 @@ featured: true
 draft: false
 tags:
   - Blogging
+  - AdSense
 description: "Ingin menghasilkan uang dari blog? Pelajari cara kerja Google AdSense, ekosistem periklanan digital, dan langkah awal menjadi publisher sukses di sini."
 image:
     url: "https://id-news.vercel.app/image/cara-kerja-google-adsense.webp"
