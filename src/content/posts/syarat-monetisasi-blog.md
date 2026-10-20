@@ -3,6 +3,7 @@ author: Putri Lestari
 pubDatetime: 2026-10-19T20:09:00Z
 title: Syarat Monetisasi Blog dengan Google AdSense yang Perlu Diketahui
 slug: syarat-monetisasi-blog
+ogImage: "https://id-news.vercel.app/image/syarat-monetisasi-blog.webp"
 featured: false
 draft: false
 tags:
