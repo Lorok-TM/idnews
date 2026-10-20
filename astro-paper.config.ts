@@ -4,7 +4,7 @@ export default defineAstroPaperConfig({
   site: {
     url: "https://id-news.vercel.app/",
     title: "ID News",
-    description: "ID-news.vercel.app menyajikan berita terkini seputar investasi, bisnis, teknologi, selebriti, hiburan, lirik lagu dan informasi lainnya dari berbagai daerah seluruh Indonesia",
+    description: "ID-news menyajikan berita terkini seputar investasi, bisnis, teknologi, selebriti, hiburan, lirik lagu dan informasi lainnya dari berbagai daerah seluruh Indonesia",
     author: "Putri Lestari",
     profile: "#",
     ogImage: "default-og.jpg",
