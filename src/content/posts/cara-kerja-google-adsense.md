@@ -3,15 +3,13 @@ author: Putri Lestari
 pubDatetime: 2026-10-19T20:33:00Z
 title: Cara Kerja Google AdSense dan Bagaimana Publisher Mendapatkan Uang
 slug: cara-kerja-google-adsense
+ogImage: "https://id-news.vercel.app/image/cara-kerja-google-adsense.webp"
 featured: true
 draft: false
 tags:
   - Blogging
   - AdSense
 description: "Ingin menghasilkan uang dari blog? Pelajari cara kerja Google AdSense, ekosistem periklanan digital, dan langkah awal menjadi publisher sukses di sini."
-image:
-    url: "https://id-news.vercel.app/image/cara-kerja-google-adsense.webp"
-    alt: "Ilustrasi cara kerja Google AdSense untuk menghasilkan uang dari blog"
 ---
 
 ![Cara Kerja Google AdSense](https://id-news.vercel.app/image/cara-kerja-google-adsense.webp)
