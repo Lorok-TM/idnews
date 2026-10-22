@@ -137,6 +137,13 @@
   }
 }
 
+.pb-6 {
+    padding-bottom: 1rem;
+}
+.pt-8 {
+    padding-top: 1rem;
+}
+
 .breadcrumb{margin-bottom:15px;margin-top:15px}
 .breadcrumb ul{display:flex;gap:8px}
 .breadcrumb a{margin-right:5px}
