@@ -151,13 +151,20 @@
     margin-bottom: 0;
 }
 
-.app-prose h2 {
-    border-bottom: 1px solid rgb(155 155 155/.2);
-    padding-bottom: .3em;
+.app-prose h2, .app-prose h3 {
     font-size: 1.5em;
     margin-top: 1.5rem;
     margin-bottom: 1rem;
     color: var(--foreground);
     font-weight: 600;
     line-height: 1.25;
+}
+
+.app-prose h2 {
+    border-bottom: 1px solid rgb(155 155 155/.2);
+    padding-bottom: .3em;
+}
+
+.app-prose h3 {
+    font-style: normal;
 }
