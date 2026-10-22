@@ -74,7 +74,6 @@ Untuk memudahkan Anda memindai informasi, berikut adalah ringkasan perbedaan ked
 | **Tujuan Utama** | Meningkatkan trafik & penjualan | Memonetisasi konten / mencari uang |
 | **Syarat Akun** | Pendaftaran instan & kartu pembayaran | Peninjauan kelayakan konten & trafik |
 | Aspek Perbandingan | Google Ads (Advertiser) | Google AdSense (Publisher) |
-| :--- | :--- | :--- |
 | **Syarat Akun** | Mudah, hanya butuh metode pembayaran | Sulit, harus melewati proses *review* ketat |
 | **Fokus Optimasi** | Riset *keyword*, *copywriting*, dan ROI | Kualitas konten, SEO, dan jumlah trafik |
 | **Platform Utama** | Halaman Pencarian, YouTube, Web Mitra | Website Pribadi, Blog, *Channel* YouTube |
