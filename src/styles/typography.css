@@ -140,3 +140,8 @@
 .breadcrumb{margin-bottom:15px;margin-top:15px}
 .breadcrumb ul{display:flex;gap:8px}
 .breadcrumb a{margin-right:5px}
+
+.app-prose :where(p):not(:where([class~=not-prose],[class~=not-prose] *)) {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
