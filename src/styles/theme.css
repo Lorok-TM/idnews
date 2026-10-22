@@ -19,7 +19,7 @@
   --accent-foreground: #ffffff;
   --muted: #e6e6e6;
   --muted-foreground: #6b7280;
-  --border: #ece9e9;
+  --border: rgb(155 155 155/.4);
 }
 
 /* Dark theme values */
@@ -30,5 +30,5 @@
   --accent-foreground: #ffffff;
   --muted: #343f60;
   --muted-foreground: #afb9ca;
-  --border: #ab4b08;
+  --border: rgb(155 155 155/.4);
 }
