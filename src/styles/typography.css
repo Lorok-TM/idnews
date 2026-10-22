@@ -168,3 +168,5 @@
 .app-prose h3 {
     font-style: normal;
 }
+
+:root{--tw-prose-th-borders:rgb(155 155 155/.4)}
