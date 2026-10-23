@@ -13,8 +13,7 @@ const { tag, tagName, size = "lg" } = Astro.props;
 const locale = Astro.currentLocale ?? config.site.lang;
 ---
 
-<li>
-  <a
+<li>#<a
     href={getRelativeLocaleUrl(locale, `tags/${tag}/`)}
     transition:name={tag}
     class:list={[
@@ -24,5 +23,5 @@ const locale = Astro.currentLocale ?? config.site.lang;
       { "text-sm": size === "sm" },
       { "text-lg": size === "lg" },
     ]}
-  ># {tagName}</a>
+  >{tagName}</a>
 </li>
