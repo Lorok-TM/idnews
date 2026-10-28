@@ -4,7 +4,7 @@ pubDatetime: 2026-10-22T20:04:00Z
 title: Cara Riset Keyword untuk Google Ads agar Iklan Lebih Tepat Sasaran
 slug: riset-keyword-untuk-google-ads
 ogImage: "https://id-news.vercel.app/image/riset-keyword-google-ads.webp"
-featured: false
+featured: true
 draft: false
 tags:
   - Digital Marketing
