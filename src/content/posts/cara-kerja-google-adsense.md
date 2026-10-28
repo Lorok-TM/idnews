@@ -4,7 +4,7 @@ pubDatetime: 2026-10-19T20:33:00Z
 title: Cara Kerja Google AdSense dan Bagaimana Publisher Mendapatkan Uang
 slug: cara-kerja-google-adsense
 ogImage: "https://id-news.vercel.app/image/cara-kerja-google-adsense.webp"
-featured: true
+featured: false
 draft: false
 tags:
   - Blogging
