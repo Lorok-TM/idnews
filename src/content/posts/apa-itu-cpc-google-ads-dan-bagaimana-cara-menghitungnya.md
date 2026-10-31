@@ -55,8 +55,7 @@ Dengan mengetahui **cara menghitung CPC**, Anda bisa memproyeksikan biaya sebelu
 
 Rumus untuk menghitung biaya rata-rata per klik sangatlah linier dan logis. Anda hanya perlu membagi total biaya kampanye dengan jumlah klik yang didapatkan. 
 
-```math
-\(\text{Rata-rata CPC} = \frac{\text{Total Biaya Iklan}}{\text{Total Klik}} \%\%\)MAGIT_PARSER_PROTECT%%```
+Rata-rata CPC = Total Biaya Iklan / Total Klik
 
 Rumus ini berlaku untuk berbagai rentang waktu, baik harian, mingguan, maupun bulanan. Anda juga bisa menggunakannya untuk menghitung biaya per level kampanye, grup iklan, hingga kata kunci spesifik. Fleksibilitas ini memudahkan Anda melakukan audit performa iklan.
 
@@ -89,8 +88,7 @@ Memahami perbedaan keduanya akan mencegah Anda dari kepanikan saat melihat lapor
 
 Google menggunakan formula khusus di balik layar dalam setiap sepersekian detik proses lelang untuk menentukan biaya aktual Anda:
 
-```math
-\(\text{Actual CPC} = \left( \frac{\text{Ad Rank Kompetitor di Bawah Anda}}{\text{Quality Score Anda}} \right) + \$0.01 \%\%\)MAGIT_PARSER_PROTECT%%```
+Actual CPC = (Ad Rank Kompetitor di Bawah Anda / Quality Score Anda) + $0.01
 
 Dari rumus ini, terlihat jelas bahwa *Quality Score* Anda bertindak sebagai pembagi. Semakin besar angka pembaginya, semakin kecil biaya aktual yang harus Anda bayar. Ini adalah kunci rahasia untuk memenangkan persaingan lelang.
 
