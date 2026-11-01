@@ -4,7 +4,7 @@ pubDatetime: 2026-10-30T09:41:00Z
 title: Faktor yang Mempengaruhi Biaya Google Ads
 slug: faktor-yang-mempengaruhi-biaya-google-ads
 ogImage: "https://id-news.vercel.app/image/faktor-yang-mempengaruhi-biaya-google-ads.webp"
-featured: false
+featured: true
 draft: false
 tags:
   - Digital Marketing
