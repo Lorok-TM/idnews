@@ -3,15 +3,16 @@ import type { CollectionEntry } from "astro:content";
 import { getPostUrl } from "@/utils/getPostPaths";
 import { toTransitionName } from "@/utils/toTransitionName";
 import Datetime from "./Datetime.astro";
-import { Image } from "astro:assets";
+import { resolveDefaultOgImagePath } from "@/utils/resolveDefaultOgImagePath";
 
 type Props = {
   variant?: "h2" | "h3";
+  ogImage?: string;
 } & CollectionEntry<"posts">;
 
 const { variant: Heading = "h2", id, data, filePath } = Astro.props;
 
-const { title, description, ogImage, ...props } = data;
+const { title, description, ogImage = resolveDefaultOgImagePath(config), ...props } = data;
 ---
 
 <li class="my-6">
@@ -26,7 +27,7 @@ const { title, description, ogImage, ...props } = data;
     {/* Gambar mung bakal muncul yen ogImage wis diisi ing frontmatter markdown */}
     {ogImage && (
       <div class="thumb">
-        <Image src={ogImage} alt={title} loading="lazy" />
+        <img src={ogImage} />
       </div>
     )}
     <Heading transition:name={toTransitionName(id)}>
