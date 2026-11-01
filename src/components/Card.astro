@@ -25,7 +25,6 @@ const postUrl = getPostUrl(id, filePath, Astro.currentLocale).replace(/^\/posts/
 const fallbackImage = `/posts${postUrl.replace(/\/$/, "")}/index.png`; 
 
 const finalImage = ogImage || fallbackImage;
-
 ---
 
 <li class="my-6">
@@ -37,12 +36,7 @@ const finalImage = ogImage || fallbackImage;
       "focus-visible:no-underline focus-visible:underline-offset-0",
     ]}
   >
-    {/* Gambar mung bakal muncul yen ogImage wis diisi ing frontmatter markdown */}
-    {ogImage && (
-      <div class="thumb">
-{ <img src={finalImage} alt={`Cover: ${title}`} class="post-thumb" width="1200" height="630" fetchpriority="high"> }
-      </div>
-    )}
+<div class="bg-img" data-bg={finalImage}/>
     <Heading transition:name={toTransitionName(id)}>
       {title}
     </Heading>
