@@ -91,7 +91,6 @@ Untuk mempermudah pemahaman Anda dalam mengenali transaksi ekonomi syariah, beri
 | :--- | :--- | :--- | :--- |
 | **Akar Masalah** | Tambahan nilai tanpa transaksi riil. | Kurangnya informasi atau transparansi. | Mengandalkan untung-untungan. |
 | **Fokus Pelanggaran** | Eksploitasi waktu dan uang. | Penipuan atau ketidakjelasan objek. | Spekulasi murni (*Zero-sum game*). |
-
 | **Contoh Umum** | Bunga pinjaman, deposito konvensional. | Jual beli kontrak fiktif, asuransi konvensional. | Togel, *Binary Options*, tebak harga. |
 | **Akibat Ekonomi** | Menindas peminjam, kekayaan terpusat. | Sengketa, penipuan finansial. | Malas bekerja, kehancuran mental. |
 
