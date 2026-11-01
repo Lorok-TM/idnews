@@ -140,7 +140,7 @@ if (pathname === '/' || pathname === '/index.html') {
 <script is:inline>if ('serviceWorker' in navigator) { window.addEventListener('load', function() { navigator.serviceWorker.register('/sw.js') .then(function(registration) { console.log('PWA ServiceWorker sukses didaftarkan di scope: ', registration.scope); }) .catch(function(err) { console.log('PWA ServiceWorker gagal didaftarkan: ', err); }); }); }</script>
 <style is:inline>
 .bg-img{background-color:rgb(155 155 155/.1);background-size:cover;background-position:center;background-repeat:no-repeat}
-.mt-posts .bg-img{aspect-ration:16/9;margin-bottom:10px}
+.mt-posts .bg-img{width:100%;aspect-ratio:16/9;margin-bottom:10px}
 
 #pwa-combo-container{position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;align-items:center;gap:8px}
 .pwa-btn{display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,#007bff,#0056b3);color:#fff;border:none;padding:6px 12px;border-radius:50px;font-family:system-ui,-apple-system,sans-serif;font-weight:600;font-size:15px;box-shadow:0 4px 15px rgb(0 123 255/.4);cursor:pointer;transition:box-shadow .2s ease;animation:pwaPulse 2s infinite}
