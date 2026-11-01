@@ -139,6 +139,9 @@ if (pathname === '/' || pathname === '/index.html') {
     <ClientRouter />
 <script is:inline>if ('serviceWorker' in navigator) { window.addEventListener('load', function() { navigator.serviceWorker.register('/sw.js') .then(function(registration) { console.log('PWA ServiceWorker sukses didaftarkan di scope: ', registration.scope); }) .catch(function(err) { console.log('PWA ServiceWorker gagal didaftarkan: ', err); }); }); }</script>
 <style is:inline>
+.bg-img{background-color:rgb(155 155 155/.1);background-size:cover;background-position:center;background-repeat:no-repeat}
+.mt-posts .bg-img{aspect-ration:16/9;margin-bottom:10px}
+
 #pwa-combo-container{position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;align-items:center;gap:8px}
 .pwa-btn{display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,#007bff,#0056b3);color:#fff;border:none;padding:6px 12px;border-radius:50px;font-family:system-ui,-apple-system,sans-serif;font-weight:600;font-size:15px;box-shadow:0 4px 15px rgb(0 123 255/.4);cursor:pointer;transition:box-shadow .2s ease;animation:pwaPulse 2s infinite}
 .pwa-btn:hover{box-shadow:0 6px 20px rgb(0 123 255/.6);background:linear-gradient(135deg,#0056b3,#004085)}
@@ -158,6 +161,9 @@ if (pathname === '/' || pathname === '/index.html') {
     <script>
       import "@/scripts/theme";
     </script>
+<script is:inline>
+let timerJsb;const jsb = () => {["mousemove", "mousedown", "touchstart", "scroll", "pointermove", "keydown", "click"].forEach(e => {window.removeEventListener(e, jsb);});clearTimeout(timerJsb);(function() {const aGb = (el) => {const imgUrl = el.getAttribute('data-bg');if (imgUrl) {el.style.backgroundImage = `url('${imgUrl}')`;el.removeAttribute('data-bg');}};const loadAwal = () => {document.querySelectorAll('[data-bg]').forEach(aGb);};if (document.readyState === 'loading') {document.addEventListener('DOMContentLoaded', loadAwal);} else {loadAwal();} const observer = new MutationObserver((mutations) => {mutations.forEach(mutation => {mutation.addedNodes.forEach(node => {if (node.nodeType === 1) {const bgs = node.querySelectorAll ? node.querySelectorAll('[data-bg]') : [];bgs.forEach(aGb);if (node.hasAttribute('data-bg')) aGb(node);}});});});observer.observe(document.body, { childList: true, subtree: true });})();console.log("Script jsb Aktif!");};["mousemove", "mousedown", "touchstart", "scroll", "pointermove", "keydown", "click"].forEach(e => {window.addEventListener(e, jsb, { passive: true });});timerJsb = setTimeout(jsb, 4000);
+</script>
 <div id="pwa-combo-container" style="display: none;">
 <button id="pwa-install-btn" class="pwa-btn" style="display: none;"><span class="pwa-icon">📲</span><span class="pwa-text">Install ID News</span></button><button id="pwa-notif-btn" class="pwa-notif-btn" style="display: none;" title="Aktifkan Notifikasi">🔔</button><button id="pwa-close-btn" class="pwa-close-btn" aria-label="Close">&times;</button>
 </div>
