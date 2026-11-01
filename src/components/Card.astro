@@ -3,16 +3,29 @@ import type { CollectionEntry } from "astro:content";
 import { getPostUrl } from "@/utils/getPostPaths";
 import { toTransitionName } from "@/utils/toTransitionName";
 import Datetime from "./Datetime.astro";
-import { resolveDefaultOgImagePath } from "@/utils/resolveDefaultOgImagePath";
 
 type Props = {
   variant?: "h2" | "h3";
-  ogImage?: string;
 } & CollectionEntry<"posts">;
 
 const { variant: Heading = "h2", id, data, filePath } = Astro.props;
 
-const { title, description, ogImage = resolveDefaultOgImagePath(config), ...props } = data;
+const { title, description, ...props } = data;
+
+// Amankan data ogImage soko TypeScript error
+const ogImage = (data as any).ogImage as string | undefined;
+
+// =========================================================================
+// 🔥 SULAP UTAMANE URL & TARGET GENERATED IMAGE (IMG SRC)
+// =========================================================================
+const postUrl = getPostUrl(id, filePath, Astro.currentLocale).replace(/^\/posts/, "");
+
+// KUNCINE: Sanajan URL post wis dadi root domain, manggake rute generator index.png-ne
+// TETEP awake dhewe arahno mlebu menyang folder /posts/ bawaan endpoint asline Vercel!
+const fallbackImage = `/posts${postUrl.replace(/\/$/, "")}/index.png`; 
+
+const finalImage = ogImage || fallbackImage;
+
 ---
 
 <li class="my-6">
@@ -27,7 +40,7 @@ const { title, description, ogImage = resolveDefaultOgImagePath(config), ...prop
     {/* Gambar mung bakal muncul yen ogImage wis diisi ing frontmatter markdown */}
     {ogImage && (
       <div class="thumb">
-        <img src={ogImage} />
+{ <img src={finalImage} alt={`Cover: ${title}`} class="post-thumb" width="1200" height="630" fetchpriority="high"> }
       </div>
     )}
     <Heading transition:name={toTransitionName(id)}>
