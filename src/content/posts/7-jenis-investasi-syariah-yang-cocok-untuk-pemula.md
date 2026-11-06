@@ -4,7 +4,7 @@ pubDatetime: 2026-11-02T12:15:00Z
 title: 7 Jenis Investasi Syariah yang Cocok untuk Pemula
 slug: 7-jenis-investasi-syariah-yang-cocok-untuk-pemula
 ogImage: "https://id-news.vercel.app/image/jenis-investasi-syariah.webp"
-featured: true
+featured: false
 draft: false
 tags:
   - Investasi
