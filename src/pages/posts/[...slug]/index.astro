@@ -6,6 +6,7 @@ import Breadcrumb from "@/components/Breadcrumb.astro";
 import Footer from "@/components/Footer.astro";
 import Datetime from "@/components/Datetime.astro";
 import Tag from "@/components/Tag.astro";
+import Card from "@/components/Card.astro"; // <-- TAMBAH IMPORT CARD IKI
 import { getPostSlug, getPostUrl } from "@/utils/getPostPaths";
 import { getSortedPosts } from "@/utils/getSortedPosts";
 import { slugifyStr } from "@/utils/slugify";
@@ -96,6 +97,12 @@ if (!ogImageUrl && config.features.dynamicOgImage) {
 const ogImage = ogImageUrl
   ? new URL(ogImageUrl, Astro.url.origin).href
   : undefined;
+
+// --- PROSES NYARING FEATURED POSTS ING KENE ---
+const allPosts = await getCollection("posts", ({ data }) => !data.draft);
+const allSortedPosts = getSortedPosts(allPosts);
+const featuredPosts = allSortedPosts.filter(({ data }) => data.featured);
+// ----------------------------------------------
 ---
 
 <PostLayout
@@ -152,6 +159,26 @@ const ogImage = ogImageUrl
     <hr class="my-8 border-dashed" />
 
     <AdjacentPostNav {prevPost} {nextPost} />
+
+  {
+    featuredPosts.length > 0 && (
+      <section id="featured-single" class="mx-auto max-w-3xl px-4 pt-8 pb-6 border-t border-skin-line mt-8">
+        <h2 class="text-2xl font-semibold tracking-wide text-skin-base">
+          Featured Posts
+        </h2>
+        <ul class="mt-4 space-y-4">
+          {featuredPosts.map((featPost) => (
+            <Card 
+              href={getPostUrl(featPost.id, featPost.filePath, locale)} 
+              frontmatter={featPost.data} 
+              secHeading={false} 
+            />
+          ))}
+        </ul>
+      </section>
+    )
+  }
+
   </main>
   <Footer />
 </PostLayout>
