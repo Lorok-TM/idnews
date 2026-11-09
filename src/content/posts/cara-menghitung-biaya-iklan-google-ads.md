@@ -4,7 +4,7 @@ pubDatetime: 2026-11-06T12:34:00Z
 title: Cara Menghitung Biaya Iklan Google Ads
 slug: cara-menghitung-biaya-iklan-google-ads
 ogImage: "https://id-news.vercel.app/image/hitung-biaya-iklan-google-ads.webp"
-featured: false
+featured: true
 draft: false
 tags:
   - Digital Marketing
