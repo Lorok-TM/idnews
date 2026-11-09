@@ -99,6 +99,20 @@ const ogImage = ogImageUrl
   ? new URL(ogImageUrl, Astro.url.origin).href
   : undefined;
 
+// --- KODE LOGIKA RELATED POSTS UTUH SAKTISEN (TEMPEL SAK NDHUWURE --- PENUTUP) ---
+const allPostsForRelated = await getCollection("posts");
+const activePosts = allPostsForRelated.filter((p) => !p.data.draft);
+
+const relatedPosts = activePosts
+  .filter((p) => {
+    const isNotCurrent = p.id !== post.id;
+    const hasTags = Array.isArray(p.data.tags) && Array.isArray(tags);
+    const shareTags = hasTags ? p.data.tags.some((tag) => tags.includes(tag)) : false;
+    return isNotCurrent && shareTags;
+  })
+  .slice(0, 3);
+// --- BATAS KODE LOGIKA ---
+
 // --- DATA FEATURED (WIS DISARING SUPAYA ARTIKEL AKTIF ORA MELU) ---
 const t = useTranslations(locale); // Kanggo ngaktifake teks terjemahan judul "Featured"
 const allPosts = await getCollection("posts");
@@ -164,6 +178,20 @@ const featuredPosts = allSortedPosts.filter(
     <hr class="my-8 border-dashed" />
 
     <AdjacentPostNav {prevPost} {nextPost} />
+
+{relatedPosts && relatedPosts.length > 0 && (
+<div class="related-post">
+<div class="related-title">Artikel Terkait:</div>
+<ul>
+{relatedPosts.map((relatedPost) => (
+<li>
+<a href={`/posts${getPostSlug(relatedPost.id, relatedPost.filePath)}/`}>{relatedPost.data.title}</a>
+{/* {relatedPost.data.description && (<p>{relatedPost.data.description}</p>)} */}
+</li>
+))}
+</ul>
+</div>
+)}
 
   {
     featuredPosts.length > 0 && (
