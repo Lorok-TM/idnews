@@ -4,7 +4,7 @@ pubDatetime: 2026-11-04T12:12:00Z
 title: Cara Cerdas Menentukan Tujuan Keuangan Investasi Syariah untuk Pemula
 slug: cara-cerdas-menentukan-tujuan-keuangan-investasi-syariah-untuk-pemula
 ogImage: "https://id-news.vercel.app/image/menentukan-keuangan-investasi-syariah.webp"
-featured: true
+featured: false
 draft: false
 tags:
   - Investasi
