@@ -98,11 +98,12 @@ const ogImage = ogImageUrl
   ? new URL(ogImageUrl, Astro.url.origin).href
   : undefined;
 
-// --- PROSES NYARING FEATURED POSTS ING KENE ---
-const allPosts = await getCollection("posts", ({ data }) => !data.draft);
+// --- TAMBAHNO KODE IKI ---
+const t = useTranslations(locale); // Kanggo ngaktifake teks terjemahan judul "Featured"
+const allPosts = await getCollection("posts");
 const allSortedPosts = getSortedPosts(allPosts);
 const featuredPosts = allSortedPosts.filter(({ data }) => data.featured);
-// ----------------------------------------------
+// -------------------------
 ---
 
 <PostLayout
@@ -162,17 +163,13 @@ const featuredPosts = allSortedPosts.filter(({ data }) => data.featured);
 
   {
     featuredPosts.length > 0 && (
-      <section id="featured-single" class="mx-auto max-w-3xl px-4 pt-8 pb-6 border-t border-skin-line mt-8">
-        <h2 class="text-2xl font-semibold tracking-wide text-skin-base">
-          Featured Posts
+      <section id="featured-single" class="mx-auto max-w-3xl px-4 pt-8 pb-6 border-t border-border mt-8">
+        <h2 class="text-2xl font-semibold tracking-wide">
+          {t.home.featured}
         </h2>
-        <ul class="mt-4 space-y-4">
-          {featuredPosts.map((featPost) => (
-            <Card 
-              href={getPostUrl(featPost.id, featPost.filePath, locale)} 
-              frontmatter={featPost.data} 
-              secHeading={false} 
-            />
+        <ul class="mt-posts">
+          {featuredPosts.map(data => (
+            <Card variant="h3" {...data} />
           ))}
         </ul>
       </section>
