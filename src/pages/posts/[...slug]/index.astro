@@ -99,12 +99,15 @@ const ogImage = ogImageUrl
   ? new URL(ogImageUrl, Astro.url.origin).href
   : undefined;
 
-// --- TAMBAHNO KODE IKI ---
+// --- DATA FEATURED (WIS DISARING SUPAYA ARTIKEL AKTIF ORA MELU) ---
 const t = useTranslations(locale); // Kanggo ngaktifake teks terjemahan judul "Featured"
 const allPosts = await getCollection("posts");
 const allSortedPosts = getSortedPosts(allPosts);
-const featuredPosts = allSortedPosts.filter(({ data }) => data.featured);
-// -------------------------
+// Ditambahi filter: featPost.id !== post.id
+const featuredPosts = allSortedPosts.filter(
+  (featPost) => featPost.data.featured && featPost.id !== post.id
+);
+// ------------------------------------------------------------------
 ---
 
 <PostLayout
