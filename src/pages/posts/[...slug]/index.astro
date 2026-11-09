@@ -169,15 +169,13 @@ const featuredPosts = allSortedPosts.filter(
 
     <BackToTopButton />
 
-    <ul class="mt-4 mb-8 flex flex-wrap gap-4 sm:my-8">
-      {tags.map(tag => <Tag tag={slugifyStr(tag)} tagName={tag} size="sm" />)}
-    </ul>
+<ul class="mt-4 mb-8 flex flex-wrap gap-4 sm:my-8">
+{tags.map(tag => <Tag tag={slugifyStr(tag)} tagName={tag} size="sm" />)}
+</ul>
 
-    <ShareLinks />
+<ShareLinks />
 
-    <hr class="my-8 border-dashed" />
-
-    <AdjacentPostNav {prevPost} {nextPost} />
+<hr class="my-8 border-dashed" />
 
 {relatedPosts && relatedPosts.length > 0 && (
 <div class="related-post">
@@ -192,6 +190,10 @@ const featuredPosts = allSortedPosts.filter(
 </ul>
 </div>
 )}
+
+<hr class="my-8 border-dashed" />
+
+<AdjacentPostNav {prevPost} {nextPost} />
 
   {
     featuredPosts.length > 0 && (
