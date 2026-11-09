@@ -165,9 +165,7 @@ const featuredPosts = allSortedPosts.filter(
      <div id="penulis"><span>Oleh: <strong>{author}</strong></span></div>
     </article>
 
-    <hr class="my-8 border-dashed" />
-
-    <BackToTopButton />
+<hr class="my-8 border-dashed" />
 
 <ul class="mt-4 mb-8 flex flex-wrap gap-4 sm:my-8">
 {tags.map(tag => <Tag tag={slugifyStr(tag)} tagName={tag} size="sm" />)}
@@ -209,9 +207,9 @@ const featuredPosts = allSortedPosts.filter(
       </section>
     )
   }
-
-  </main>
-  <Footer />
+<BackToTopButton />
+</main>
+<Footer />
 </PostLayout>
 
 <script is:inline data-astro-rerun>
