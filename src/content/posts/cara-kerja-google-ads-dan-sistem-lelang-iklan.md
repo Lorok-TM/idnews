@@ -4,7 +4,7 @@ pubDatetime: 2026-11-08T13:47:00Z
 title: "Cara Kerja Google Ads dan Sistem Lelang Iklan"
 slug: cara-kerja-google-ads-dan-sistem-lelang-iklan
 ogImage: "https://id-news.vercel.app/image/cara-kerja-google-ads.webp"
-featured: false
+featured: true
 draft: false
 tags:
   - Digital Marketing
