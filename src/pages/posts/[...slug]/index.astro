@@ -179,13 +179,17 @@ const featuredPosts = allSortedPosts.filter(
 <div class="related-post">
 <div class="related-title">Artikel Terkait:</div>
 <ul class="mt-posts">
-{relatedPosts.map((relatedPost) => (
+{relatedPosts.map(data => (
 <Card variant="h3" {...data} />
-{/* <li>
+))}
+{/* 
+{relatedPosts.map((relatedPost) => (
+<li>
 <a href={`/posts${getPostSlug(relatedPost.id, relatedPost.filePath)}/`}>{relatedPost.data.title}</a>
 {relatedPost.data.description && (<p>{relatedPost.data.description}</p>)}
-</li> */}
+</li>
 ))}
+*/}
 </ul>
 </div>
 )}
