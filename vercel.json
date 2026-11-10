@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/posts/8/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/posts/riset-keyword-untuk-google-ads/",
       "destination": "/",
       "permanent": true
